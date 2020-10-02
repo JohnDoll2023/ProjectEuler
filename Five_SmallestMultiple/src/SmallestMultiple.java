@@ -7,13 +7,12 @@ public class SmallestMultiple {
 		int i = 0;
 		boolean divisible = false;
 		while(!divisible) {
-			int num = x * i;
+			int num = x * ++i;
 			divisible = true;
-			for(int j = x + 1; j < num; j++) {
+			for(int j = 2; j < x; j++) {
 				if(num % j != 0)
 					divisible = false;
 			}
-			i++;
 		}
 		return x * i;
 	}
