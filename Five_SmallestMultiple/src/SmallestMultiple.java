@@ -1,8 +1,8 @@
-
 public class SmallestMultiple {
 	public static void main(String[] args) {
 		System.out.println(smallestMultiple(20));
 	}
+	
 	public static int smallestMultiple(int x) {
 		int i = 0;
 		boolean divisible = false;
