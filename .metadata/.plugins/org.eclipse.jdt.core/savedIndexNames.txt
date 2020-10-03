@@ -1,5 +1,3 @@
 INDEX VERSION 1.131+/Users/johndoll/Personal/ProjectEuler/.metadata/.plugins/org.eclipse.jdt.core
 1076008343.index
-3167589242.index
-4136435152.index
-3217279640.index
+2190650523.index
