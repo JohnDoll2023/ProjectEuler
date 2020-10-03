@@ -3,20 +3,22 @@ public class Prime10001 {
 		System.out.println(prime());
 	}
 	
-	public static int prime() {
+	public static long prime() {
 		int count = 0;
-		int i = 2;
+		long i = 2L;
 		boolean value;
 		while(count <= 10001) {
 			value = true;
-			for(int j = 2; j < i/2; j++) {
-				if(i % j != 0)
+			for(long j = 2L; j < i/2; j++) {
+				if(i % j != 0) {
 					value = false;
+					break;
+				}
 			}
 			i++;
 			if(value)
 				count++;
 		}
-		return --i;
+		return i;
 	}
 }
