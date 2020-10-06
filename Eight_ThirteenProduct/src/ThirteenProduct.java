@@ -30,13 +30,17 @@ public class ThirteenProduct {
 		}
 		
 		for(int j = 0; j < 988; j++) {
-			if(numbers[j+12] == 0) 
-				j += 12;
-			else {
+//			if(numbers[j+12] == 0) 
+//				j += 12;
+//			else {
 				long number = numbers[j] * numbers[j+1] * numbers[j+2] * numbers[j+3] * numbers[j+4] * numbers[j+5] * numbers[j+6] * numbers[j+7] * numbers[j+8] * numbers[j+9] * numbers[j+10] * numbers[j+11] * numbers[j+12];
-				if(number > largest)
+				if(number > largest) {
+					System.out.println(j);
+					System.out.println(numbers[j]);
+					System.out.println(numbers[j+1]);
 					largest = number;
-			}
+				}
+			//}
 		}
 		return largest;
 	}
