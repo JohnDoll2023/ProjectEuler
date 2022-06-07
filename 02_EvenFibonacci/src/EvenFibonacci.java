@@ -1,4 +1,3 @@
-
 public class EvenFibonacci {
 
 	static int count = 0;
@@ -14,5 +13,4 @@ public class EvenFibonacci {
 		
 		return count += ((fibonacci(n - 1) + fibonacci(n - 2)) % 2 == 0 ? 1 : 0) ;
 	}
-
 }
