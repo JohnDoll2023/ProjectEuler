@@ -1,4 +1,3 @@
-
 public class Mult3And5 {
 
 	public static void main(String[] args) {
@@ -14,5 +13,4 @@ public class Mult3And5 {
 		}
 		return sum;
 	}
-
 }
