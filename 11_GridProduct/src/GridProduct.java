@@ -24,25 +24,27 @@ public class GridProduct {
 			row1++;
 		}
 		int max = 0;
-		outer: for (int row = 0; row < 20; row++) {
+		for (int row = 0; row < 20; row++) {
 			for (int col = 0; col < 20; col++) {
-				// diagonal
+				// diagonal down right
+				int loc = grid[col][row];
 				if (row <= 16 && col <= 16) {
-					max = Math.max(grid[col][row] * grid[col + 1][row + 1] * grid[col + 2][row + 2] *  grid[col + 3][row + 3], max);
-					max = Math.max(grid[col][row] * grid[col + 1][row] * grid[col + 2][row] * grid[col + 3][row], max);
-					max = Math.max(grid[col][row] * grid[col][row + 1] * grid[col][row + 2] * grid[col][row + 3], max);	
+					max = Math.max(loc * grid[col + 1][row + 1] * grid[col + 2][row + 2] *  grid[col + 3][row + 3], max);
+					max = Math.max(loc * grid[col][row + 1] * grid[col][row + 2] * grid[col][row + 3], max);
+					max = Math.max(loc * grid[col + 1][row] * grid[col + 2][row] * grid[col + 3][row], max);
 				} else if (col <= 16) {
 					// right
-					max = Math.max(grid[col][row] * grid[col + 1][row] * grid[col + 2][row] * grid[col + 3][row], max);
+					max = Math.max(loc * grid[col + 1][row] * grid[col + 2][row] * grid[col + 3][row], max);
 				} else if (row <= 16) {
 					// down
-					max = Math.max(grid[col][row] * grid[col][row + 1] * grid[col][row + 2] * grid[col][row + 3], max);
-				} else {
-					break outer;
+					max = Math.max(loc * grid[col][row + 1] * grid[col][row + 2] * grid[col][row + 3], max);
+				}
+				// diagonal up right
+				if (row >= 3 && col <= 16) {
+					max = Math.max(loc * grid[col + 1][row - 1] * grid[col + 2][row - 2] *  grid[col + 3][row - 3], max);
 				}
 			}
 		}
 		return max;
 	}
-
 }
