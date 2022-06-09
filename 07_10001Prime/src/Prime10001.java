@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 
 public class Prime10001 {
 	public static void main(String[] args) {
@@ -6,20 +8,28 @@ public class Prime10001 {
 	
 	public static long prime() {
 		int count = 0;
-		long i = 2L;
-		boolean value;
-		while(count <= 10001) {
-			value = true;
-			for(long j = 2L; j < i/2; j++) {
-				if(i % j != 0) {
-					value = false;
-					break;
+		
+		// store prime numbers
+		List<Integer> list = new ArrayList<>();
+		
+		// add first prime number
+		list.add(2);
+		
+		// loop until 10,001st prime number is found
+		while(++count < 10001) {
+			
+			// start is number to be determined whether or not is prime, we begin from previous prime + 1
+			int start = list.get(count - 1) + 2;
+			
+			// loop thru arraylist of prime numbers, checking if start is divisible by them
+			for (int i = 0; i < count && list.get(i) < (start/2 + 1); i++) {
+				if (start % list.get(i) == 0) {
+					start++;
+					i = -1;
 				}
 			}
-			i++;
-			if(value)
-				count++;
+			list.add(start);
 		}
-		return i;
+		return list.get(count - 1);
 	}
 }
